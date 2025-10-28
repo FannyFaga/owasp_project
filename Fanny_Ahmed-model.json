@@ -1,0 +1,324 @@
+{
+  "summary": {
+    "title": "Demo Threat Model",
+    "owner": "Mike Goodwin",
+    "description": "A sample model of a web application, with a queue-decoupled background process.",
+    "id": 0
+  },
+  "detail": {
+    "contributors": [
+      {
+        "name": "Tom Brown"
+      },
+      {
+        "name": "Albert Moneypenny"
+      }
+    ],
+    "diagrams": [
+      {
+        "title": "Web app fanny_ahmed",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "id": 0,
+        "diagramJson": {
+          "cells": [
+            {
+              "type": "tm.Process",
+              "size": {
+                "width": 100,
+                "height": 100
+              },
+              "position": {
+                "x": 406,
+                "y": 245
+              },
+              "angle": 0,
+              "id": "0d9909ea-1398-4898-be81-cf1c808324dc",
+              "z": 6,
+              "privilegeLevel": "executionContext =Limited",
+              "outOfScope": false,
+              "hasOpenThreats": false,
+              "attrs": {
+                ".element-shape": {
+                  "class": "element-shape hasNoOpenThreats isInScope"
+                },
+                "text": {
+                  "text": "Web server\nFanny_Ahmed"
+                },
+                "#element-process": {
+                  "class": "outOfScopeElement"
+                },
+                ".undefined": {
+                  "class": "undefinedhasNoOpenThreats isInScope"
+                },
+                ".element-text": {
+                  "class": "element-text hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Actor",
+              "size": {
+                "width": 160,
+                "height": 80
+              },
+              "position": {
+                "x": 23,
+                "y": 257
+              },
+              "angle": 0,
+              "id": "b394f9f7-07ca-42bc-b616-ad77c6fbfcce",
+              "z": 7,
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "modelType": "STRIDE",
+                  "title": "Denial of service",
+                  "type": "Denial of service",
+                  "mitigation": "Implement rate limiting and throttling to restrict excessive requests from the same source.\nUse Web Application Firewalls (WAF) to detect and block suspicious traffic patterns.\nMonitor system performance and set alerts for unusual spikes in usage.\nEmploy caching and load balancing to reduce server load.\nConsider CAPTCHAs or challenge-response mechanisms to prevent automated abuse.",
+                  "description": "An attacker can intentionally overload the application or service by sending a high volume of requests or exploiting resource-intensive operations, causing degradation or complete unavailability of the system for legitimate users.\nThis can lead to loss of availability, reputation damage, and service-level agreement (SLA) violations.",
+                  "threatId": "c649fe63-e414-48af-888a-5caf2c9463fa",
+                  "$$hashKey": "object:507"
+                }
+              ],
+              "outOfScope": false,
+              "hasOpenThreats": true,
+              "attrs": {
+                ".element-shape": {
+                  "class": "element-shape hasOpenThreats isInScope"
+                },
+                "text": {
+                  "text": "user: Fanny_Ahmed"
+                },
+                "#element-shape": {
+                  "class": ""
+                },
+                ".undefined": {
+                  "class": "undefinedhasNoOpenThreats isInScope"
+                },
+                ".element-text": {
+                  "class": "element-text hasOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Flow",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "x": 184,
+                "y": 289
+              },
+              "target": {
+                "x": 403,
+                "y": 289
+              },
+              "vertices": [
+                {
+                  "x": 296,
+                  "y": 253
+                }
+              ],
+              "id": "2d7839eb-b18a-4673-80bc-4af307fbf6e4",
+              "labels": [
+                {
+                  "position": {
+                    "distance": 0.2811960521116894,
+                    "offset": -33.5143147215665
+                  },
+                  "attrs": {
+                    "text": {
+                      "text": "requete HTTP",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 9,
+              "hasOpenThreats": false,
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Flow",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "x": 408,
+                "y": 314
+              },
+              "target": {
+                "x": 185,
+                "y": 311
+              },
+              "vertices": [
+                {
+                  "x": 297,
+                  "y": 365
+                },
+                {
+                  "x": 212,
+                  "y": 342
+                }
+              ],
+              "id": "aadc5aac-1804-45ed-bac4-3a8f2a674367",
+              "labels": [
+                {
+                  "position": {
+                    "distance": 0.6773989877235248,
+                    "offset": -21.579010873703865
+                  },
+                  "attrs": {
+                    "text": {
+                      "text": "Reponse HTTP",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 10,
+              "hasOpenThreats": false,
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Store",
+              "size": {
+                "width": 160,
+                "height": 80
+              },
+              "position": {
+                "x": 612,
+                "y": 260
+              },
+              "angle": 0,
+              "id": "6cee7c7d-2307-433c-9dfc-a859c599d7a9",
+              "z": 11,
+              "hasOpenThreats": false,
+              "attrs": {
+                ".element-shape": {
+                  "class": "element-shape hasNoOpenThreats isInScope"
+                },
+                "text": {
+                  "text": "base de donnnée"
+                },
+                ".element-text": {
+                  "class": "element-text hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Flow",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "x": 506,
+                "y": 301
+              },
+              "target": {
+                "id": "6cee7c7d-2307-433c-9dfc-a859c599d7a9"
+              },
+              "vertices": [],
+              "id": "9c71d7b2-2ad4-4ea6-b095-6d9dba276bfd",
+              "labels": [
+                {
+                  "position": 0.5,
+                  "attrs": {
+                    "text": {
+                      "text": "flow 4",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 12,
+              "hasOpenThreats": false,
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Boundary",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "x": 376,
+                "y": 501
+              },
+              "target": {
+                "x": 428,
+                "y": 150
+              },
+              "vertices": [
+                {
+                  "x": 299,
+                  "y": 305
+                },
+                {
+                  "x": 299,
+                  "y": 183
+                }
+              ],
+              "id": "8a9a6f72-8607-403b-9dd2-81abadd75a90",
+              "z": 13,
+              "labels": [
+                {
+                  "position": {
+                    "distance": 0.07339585228821251,
+                    "offset": -40.685739221334096
+                  },
+                  "attrs": {
+                    "text": {
+                      "text": "internet",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "attrs": {}
+            }
+          ]
+        },
+        "size": {
+          "height": 594,
+          "width": 879
+        },
+        "diagramType": "STRIDE"
+      }
+    ],
+    "reviewer": "Jane Smith"
+  }
+}
